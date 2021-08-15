@@ -1,12 +1,40 @@
+
+
 <h1>Hey! This is my re-former project!</h1>
 
 <h2>List of users:</h2>
 <% i = 1%>
-<% while i <= User.all.size%>
-<%= User.find(i).username %><br>
-<% i += 1%>
+<% while i <= User.last.id%>
+
+    <%= User.find(i).username if User.exists?(id: i)%><br>
+    
+    <% i += 1%>
 <% end %>
 
+<h2>Create new user:</h2>
+
+  <%= form_with model: @user do |form| %>
+    <%= form.label :username, "Username"%> 
+    <%= form.text_field :username %> 
+    <%= form.label :email, "Email"%> 
+    <%= form.text_field :email %> 
+    <%= form.label :password, "Password"%> 
+    <%= form.password_field :password %> 
+
+    <%= submit_tag("Submit") %>
+  <% end %>
+<!--
+<%= form_tag("/users#create", method: "post") do %>
+    <%= label_tag(:username, "Username") %>
+    <%= text_field_tag(:username) %>
+    <%= label_tag(:email,"Email") %>
+    <%= text_field_tag(:email) %>
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag(:password) %>
+    <%= submit_tag("Search") %>
+<% end %>
+-->
+<!--
 <h2>Create new user:</h2>
 <form action="/users#create" method="post" accept-charset="UTF-8">
   <label for="username">Username:</label>
@@ -18,3 +46,5 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
 </form>
+-->
+
