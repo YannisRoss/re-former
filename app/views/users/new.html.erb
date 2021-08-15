@@ -15,12 +15,12 @@
 
   <%= form_with model: @user do |form| %>
     <%= form.label :username, "Username"%> 
-    <%= form.text_field :username %> 
+    <%= form.text_field :username, placeholder: "User_name2021"%> <br><br>
     <%= form.label :email, "Email"%> 
-    <%= form.text_field :email %> 
+    <%= form.text_field :email, placeholder: "email@domain.com"%> <br><br>
     <%= form.label :password, "Password"%> 
     <%= form.password_field :password %> 
-
+<br><br>
     <%= submit_tag("Submit") %>
   <% end %>
 <!--
