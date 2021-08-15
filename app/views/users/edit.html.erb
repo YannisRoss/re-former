@@ -1,0 +1,22 @@
+
+<h2>Edit existing user:</h2>
+
+<%= @user.username%><br>
+<%= @user.password%><br>
+<%= @user.email%><br><br>
+
+  <%= form_with(url: "/users/#{@user.id}", method: "patch") do |form| %>
+
+ <%= form.label :username, "Username"%> 
+    <%= form.text_field :username, placeholder: "User_name2021"%> <br><br>
+     <%= form.label :email, "Email"%> 
+    <%= form.text_field :email, placeholder: "email@domain.com"%> <br><br>
+    <%= form.label :password, "Password"%> 
+    <%= form.password_field :password %> 
+<br><br>
+    <%= submit_tag("Submit") %>
+    <% end %>
+
+
+
+
