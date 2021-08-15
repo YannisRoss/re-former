@@ -1,0 +1,19 @@
+<h1>Hey! This is my re-former project!</h1>
+
+<h2>List of users:</h2>
+<% i = 1%>
+<% while i <= User.all.size%>
+<%= User.find(i).username %><br>
+<% i += 1%>
+<% end %>
+
+<h2>Create new user:</h2>
+<form action="/users/new(.:format)" method="get">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="password">Password:</label>
+  <input type="text" id="password" name="password"><br><br>
+  <label for="email">E-mail:</label>
+  <input type="text" id="email" name="email"><br><br>
+  <input type="submit" value="Submit">
+</form>
